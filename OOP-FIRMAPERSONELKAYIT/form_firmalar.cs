@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace OOP_FIRMAPERSONELKAYIT
 {
     public partial class form_firmalar : Form
@@ -15,6 +16,10 @@ namespace OOP_FIRMAPERSONELKAYIT
         public form_firmalar()
         {
             InitializeComponent();
+            dgv_Firmalar.Rows.Add(new object[] { 41234, "deneme" });
+            tbl t=new DataTable();
         }
+       
+
     }
 }

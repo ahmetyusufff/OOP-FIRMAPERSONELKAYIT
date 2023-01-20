@@ -8,5 +8,6 @@ namespace OOP_FIRMAPERSONELKAYIT
 {
     internal class Firma
     {
+
     }
 }
