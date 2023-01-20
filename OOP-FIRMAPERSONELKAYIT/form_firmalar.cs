@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace OOP_FIRMAPERSONELKAYIT
 {
-    public partial class Form1 : Form
+    public partial class form_firmalar : Form
     {
-        public Form1()
+        public form_firmalar()
         {
             InitializeComponent();
         }
