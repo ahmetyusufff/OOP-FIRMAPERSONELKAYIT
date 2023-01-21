@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,13 +56,21 @@
       <DependentUpon>form_firmalar.cs</DependentUpon>
     </Compile>
     <Compile Include="models\Firma.cs" />
+    <Compile Include="models\adres_models\il.cs" />
+    <Compile Include="models\adres_models\ilce.cs" />
+    <Compile Include="models\adres_models\tr_il_ilceler.cs" />
     <Compile Include="models\ozel_dgv.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="models\ozel_dgv.Designer.cs">
       <DependentUpon>ozel_dgv.cs</DependentUpon>
     </Compile>
-
+    <Compile Include="models\tbl_models\tbl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="models\tbl_models\tbl_firmalar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="form_firmalar.resx">
@@ -76,7 +87,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,6 +105,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="models\db_models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-file-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
