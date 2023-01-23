@@ -101,51 +101,52 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="form_firmalar.cs">
+    <Compile Include="Form_Firmalar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form_firmalar.Designer.cs">
-      <DependentUpon>form_firmalar.cs</DependentUpon>
+    <Compile Include="Form_Firmalar.Designer.cs">
+      <DependentUpon>Form_Firmalar.cs</DependentUpon>
     </Compile>
-    <Compile Include="form_hesaplama.cs">
+    <Compile Include="Form_Hesaplama.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form_hesaplama.Designer.cs">
-      <DependentUpon>form_hesaplama.cs</DependentUpon>
+    <Compile Include="Form_Hesaplama.Designer.cs">
+      <DependentUpon>Form_Hesaplama.cs</DependentUpon>
     </Compile>
-    <Compile Include="form_personeller.cs">
+    <Compile Include="Form_Personeller.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form_personeller.Designer.cs">
-      <DependentUpon>form_personeller.cs</DependentUpon>
+    <Compile Include="Form_Personeller.Designer.cs">
+      <DependentUpon>Form_Personeller.cs</DependentUpon>
     </Compile>
-    <Compile Include="models\db_models\dbConnection.cs" />
+    <Compile Include="Global_Functions.cs" />
+    <Compile Include="models\db_models\DbConnection.cs" />
     <Compile Include="models\Firma.cs" />
     <Compile Include="models\adres_models\il.cs" />
     <Compile Include="models\adres_models\ilce.cs" />
     <Compile Include="models\adres_models\tr_il_ilceler.cs" />
-    <Compile Include="models\ozel_dgv.cs">
+    <Compile Include="models\Ozel_DGV.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="models\ozel_dgv.Designer.cs">
-      <DependentUpon>ozel_dgv.cs</DependentUpon>
+    <Compile Include="models\Ozel_DGV.Designer.cs">
+      <DependentUpon>Ozel_DGV.cs</DependentUpon>
     </Compile>
     <Compile Include="models\Personel.cs" />
-    <Compile Include="models\tbl_models\tbl_firmalar.cs" />
-    <Compile Include="models\tbl_models\tbl_personeller.cs" />
+    <Compile Include="models\tbl_models\Tbl_Firmalar.cs" />
+    <Compile Include="models\tbl_models\Tbl_Personeller.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="form_firmalar.resx">
-      <DependentUpon>form_firmalar.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Firmalar.resx">
+      <DependentUpon>Form_Firmalar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="form_hesaplama.resx">
-      <DependentUpon>form_hesaplama.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Hesaplama.resx">
+      <DependentUpon>Form_Hesaplama.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="form_personeller.resx">
-      <DependentUpon>form_personeller.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Personeller.resx">
+      <DependentUpon>Form_Personeller.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="models\ozel_dgv.resx">
-      <DependentUpon>ozel_dgv.cs</DependentUpon>
+    <EmbeddedResource Include="models\Ozel_DGV.resx">
+      <DependentUpon>Ozel_DGV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -185,6 +186,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculator-2-24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

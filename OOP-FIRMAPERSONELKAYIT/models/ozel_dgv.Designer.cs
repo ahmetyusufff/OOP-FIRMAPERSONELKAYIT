@@ -1,6 +1,6 @@
 ﻿namespace OOP_FIRMAPERSONELKAYIT
 {
-    partial class ozel_dgv
+    partial class Ozel_DGV
     {
         /// <summary>
         ///Gerekli tasarımcı değişkeni.

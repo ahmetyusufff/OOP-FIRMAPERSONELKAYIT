@@ -1,6 +1,6 @@
 ﻿namespace OOP_FIRMAPERSONELKAYIT
 {
-    partial class form_personeller
+    partial class Form_Personeller
     {
         /// <summary>
         /// Required designer variable.
@@ -58,17 +58,17 @@
             this.txt_soyadi = new System.Windows.Forms.TextBox();
             this.txt_tc = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_sil = new System.Windows.Forms.Button();
-            this.btn_duzenle = new System.Windows.Forms.Button();
-            this.btn_yeni_kayit = new System.Windows.Forms.Button();
             this.gb_tablo = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbl_arama = new System.Windows.Forms.Label();
-            this.dgv_personeller = new OOP_FIRMAPERSONELKAYIT.ozel_dgv();
+            this.dgv_personeller = new OOP_FIRMAPERSONELKAYIT.Ozel_DGV();
             this.personel_kodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personel_ad_soyad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_geri = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_geri = new System.Windows.Forms.Button();
+            this.btn_sil = new System.Windows.Forms.Button();
+            this.btn_duzenle = new System.Windows.Forms.Button();
+            this.btn_yeni_kayit = new System.Windows.Forms.Button();
             this.gb_personel_bilgileri.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gb_tablo.SuspendLayout();
@@ -111,7 +111,7 @@
             this.gb_personel_bilgileri.Size = new System.Drawing.Size(383, 296);
             this.gb_personel_bilgileri.TabIndex = 8;
             this.gb_personel_bilgileri.TabStop = false;
-            this.gb_personel_bilgileri.Text = "groupBox1";
+            this.gb_personel_bilgileri.Text = "Personel Bilgileri";
             // 
             // panel1
             // 
@@ -125,7 +125,7 @@
             this.txt_ucreti.Location = new System.Drawing.Point(164, 231);
             this.txt_ucreti.Name = "txt_ucreti";
             this.txt_ucreti.Size = new System.Drawing.Size(140, 20);
-            this.txt_ucreti.TabIndex = 38;
+            this.txt_ucreti.TabIndex = 9;
             // 
             // txt_ise_baslama_tarihi
             // 
@@ -133,7 +133,7 @@
             this.txt_ise_baslama_tarihi.Mask = "00.00.0000";
             this.txt_ise_baslama_tarihi.Name = "txt_ise_baslama_tarihi";
             this.txt_ise_baslama_tarihi.Size = new System.Drawing.Size(140, 20);
-            this.txt_ise_baslama_tarihi.TabIndex = 37;
+            this.txt_ise_baslama_tarihi.TabIndex = 6;
             this.txt_ise_baslama_tarihi.ValidatingType = typeof(System.DateTime);
             // 
             // cmb_calisma_sekli
@@ -147,7 +147,7 @@
             this.cmb_calisma_sekli.Location = new System.Drawing.Point(164, 203);
             this.cmb_calisma_sekli.Name = "cmb_calisma_sekli";
             this.cmb_calisma_sekli.Size = new System.Drawing.Size(140, 21);
-            this.cmb_calisma_sekli.TabIndex = 36;
+            this.cmb_calisma_sekli.TabIndex = 8;
             // 
             // cmb_durumu
             // 
@@ -160,7 +160,7 @@
             this.cmb_durumu.Location = new System.Drawing.Point(164, 176);
             this.cmb_durumu.Name = "cmb_durumu";
             this.cmb_durumu.Size = new System.Drawing.Size(140, 21);
-            this.cmb_durumu.TabIndex = 36;
+            this.cmb_durumu.TabIndex = 7;
             // 
             // cmb_cinsiyeti
             // 
@@ -172,7 +172,7 @@
             this.cmb_cinsiyeti.Location = new System.Drawing.Point(164, 124);
             this.cmb_cinsiyeti.Name = "cmb_cinsiyeti";
             this.cmb_cinsiyeti.Size = new System.Drawing.Size(140, 21);
-            this.cmb_cinsiyeti.TabIndex = 36;
+            this.cmb_cinsiyeti.TabIndex = 5;
             // 
             // lbl_gerekli_9
             // 
@@ -341,31 +341,32 @@
             this.txt_personel_kodu.Location = new System.Drawing.Point(164, 19);
             this.txt_personel_kodu.Name = "txt_personel_kodu";
             this.txt_personel_kodu.Size = new System.Drawing.Size(100, 20);
-            this.txt_personel_kodu.TabIndex = 21;
+            this.txt_personel_kodu.TabIndex = 1;
             // 
             // txt_adi
             // 
             this.txt_adi.Location = new System.Drawing.Point(164, 46);
             this.txt_adi.Name = "txt_adi";
             this.txt_adi.Size = new System.Drawing.Size(140, 20);
-            this.txt_adi.TabIndex = 26;
+            this.txt_adi.TabIndex = 2;
             // 
             // txt_soyadi
             // 
             this.txt_soyadi.Location = new System.Drawing.Point(164, 72);
             this.txt_soyadi.Name = "txt_soyadi";
             this.txt_soyadi.Size = new System.Drawing.Size(140, 20);
-            this.txt_soyadi.TabIndex = 30;
+            this.txt_soyadi.TabIndex = 3;
             // 
             // txt_tc
             // 
             this.txt_tc.Location = new System.Drawing.Point(164, 98);
             this.txt_tc.Name = "txt_tc";
             this.txt_tc.Size = new System.Drawing.Size(140, 20);
-            this.txt_tc.TabIndex = 31;
+            this.txt_tc.TabIndex = 4;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btn_geri);
             this.panel2.Controls.Add(this.btn_sil);
             this.panel2.Controls.Add(this.btn_duzenle);
             this.panel2.Controls.Add(this.btn_yeni_kayit);
@@ -374,50 +375,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(785, 53);
             this.panel2.TabIndex = 9;
-            // 
-            // btn_sil
-            // 
-            this.btn_sil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_sil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_sil.Image = global::OOP_FIRMAPERSONELKAYIT.Properties.Resources.delete_24;
-            this.btn_sil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_sil.Location = new System.Drawing.Point(478, 7);
-            this.btn_sil.Name = "btn_sil";
-            this.btn_sil.Size = new System.Drawing.Size(113, 39);
-            this.btn_sil.TabIndex = 227;
-            this.btn_sil.Text = "SİL";
-            this.btn_sil.UseVisualStyleBackColor = true;
-            this.btn_sil.Click += new System.EventHandler(this.btn_sil_Click);
-            // 
-            // btn_duzenle
-            // 
-            this.btn_duzenle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_duzenle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_duzenle.Image = global::OOP_FIRMAPERSONELKAYIT.Properties.Resources.edit_24;
-            this.btn_duzenle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_duzenle.Location = new System.Drawing.Point(350, 7);
-            this.btn_duzenle.Name = "btn_duzenle";
-            this.btn_duzenle.Size = new System.Drawing.Size(113, 39);
-            this.btn_duzenle.TabIndex = 226;
-            this.btn_duzenle.Text = "DÜZENLE";
-            this.btn_duzenle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_duzenle.UseVisualStyleBackColor = true;
-            this.btn_duzenle.Click += new System.EventHandler(this.btn_duzenle_Click);
-            // 
-            // btn_yeni_kayit
-            // 
-            this.btn_yeni_kayit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_yeni_kayit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_yeni_kayit.Image = global::OOP_FIRMAPERSONELKAYIT.Properties.Resources.add_file_24;
-            this.btn_yeni_kayit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_yeni_kayit.Location = new System.Drawing.Point(220, 7);
-            this.btn_yeni_kayit.Name = "btn_yeni_kayit";
-            this.btn_yeni_kayit.Size = new System.Drawing.Size(113, 39);
-            this.btn_yeni_kayit.TabIndex = 225;
-            this.btn_yeni_kayit.Text = "YENİ KAYIT";
-            this.btn_yeni_kayit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_yeni_kayit.UseVisualStyleBackColor = true;
-            this.btn_yeni_kayit.Click += new System.EventHandler(this.btn_yeni_kayit_Click);
             // 
             // gb_tablo
             // 
@@ -465,7 +422,7 @@
             this.dgv_personeller.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_personeller.Size = new System.Drawing.Size(240, 248);
             this.dgv_personeller.TabIndex = 10;
-            this.dgv_personeller.SelectionChanged += new System.EventHandler(this.dgv_personeller_SelectionChanged);
+            this.dgv_personeller.SelectionChanged += new System.EventHandler(this.Dgv_personeller_SelectionChanged);
             // 
             // personel_kodu
             // 
@@ -480,21 +437,6 @@
             this.personel_ad_soyad.Name = "personel_ad_soyad";
             this.personel_ad_soyad.ReadOnly = true;
             // 
-            // btn_geri
-            // 
-            this.btn_geri.BackColor = System.Drawing.Color.MistyRose;
-            this.btn_geri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_geri.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_geri.Image = global::OOP_FIRMAPERSONELKAYIT.Properties.Resources.back;
-            this.btn_geri.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_geri.Location = new System.Drawing.Point(660, 10);
-            this.btn_geri.Name = "btn_geri";
-            this.btn_geri.Size = new System.Drawing.Size(113, 39);
-            this.btn_geri.TabIndex = 227;
-            this.btn_geri.Text = "GERİ";
-            this.btn_geri.UseVisualStyleBackColor = false;
-            this.btn_geri.Click += new System.EventHandler(this.btn_geri_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::OOP_FIRMAPERSONELKAYIT.Properties.Resources.timecom_logo;
@@ -505,17 +447,76 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // btn_geri
+            // 
+            this.btn_geri.BackColor = System.Drawing.Color.MistyRose;
+            this.btn_geri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_geri.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_geri.Image = global::OOP_FIRMAPERSONELKAYIT.Properties.Resources.back;
+            this.btn_geri.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_geri.Location = new System.Drawing.Point(63, 7);
+            this.btn_geri.Name = "btn_geri";
+            this.btn_geri.Size = new System.Drawing.Size(113, 39);
+            this.btn_geri.TabIndex = 228;
+            this.btn_geri.Text = "GERİ";
+            this.btn_geri.UseVisualStyleBackColor = false;
+            this.btn_geri.Click += new System.EventHandler(this.Btn_geri_Click);
+            // 
+            // btn_sil
+            // 
+            this.btn_sil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_sil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_sil.Image = global::OOP_FIRMAPERSONELKAYIT.Properties.Resources.delete_24;
+            this.btn_sil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_sil.Location = new System.Drawing.Point(605, 7);
+            this.btn_sil.Name = "btn_sil";
+            this.btn_sil.Size = new System.Drawing.Size(113, 39);
+            this.btn_sil.TabIndex = 227;
+            this.btn_sil.Text = "SİL";
+            this.btn_sil.UseVisualStyleBackColor = true;
+            this.btn_sil.Click += new System.EventHandler(this.Btn_sil_Click);
+            // 
+            // btn_duzenle
+            // 
+            this.btn_duzenle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_duzenle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_duzenle.Image = global::OOP_FIRMAPERSONELKAYIT.Properties.Resources.edit_24;
+            this.btn_duzenle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_duzenle.Location = new System.Drawing.Point(477, 7);
+            this.btn_duzenle.Name = "btn_duzenle";
+            this.btn_duzenle.Size = new System.Drawing.Size(113, 39);
+            this.btn_duzenle.TabIndex = 226;
+            this.btn_duzenle.Text = "DÜZENLE";
+            this.btn_duzenle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_duzenle.UseVisualStyleBackColor = true;
+            this.btn_duzenle.Click += new System.EventHandler(this.Btn_duzenle_Click);
+            // 
+            // btn_yeni_kayit
+            // 
+            this.btn_yeni_kayit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_yeni_kayit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_yeni_kayit.Image = global::OOP_FIRMAPERSONELKAYIT.Properties.Resources.add_file_24;
+            this.btn_yeni_kayit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_yeni_kayit.Location = new System.Drawing.Point(347, 7);
+            this.btn_yeni_kayit.Name = "btn_yeni_kayit";
+            this.btn_yeni_kayit.Size = new System.Drawing.Size(113, 39);
+            this.btn_yeni_kayit.TabIndex = 225;
+            this.btn_yeni_kayit.Text = "YENİ KAYIT";
+            this.btn_yeni_kayit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_yeni_kayit.UseVisualStyleBackColor = true;
+            this.btn_yeni_kayit.Click += new System.EventHandler(this.Btn_yeni_kayit_Click);
+            // 
             // form_personeller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(785, 403);
-            this.Controls.Add(this.btn_geri);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.gb_tablo);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.gb_personel_bilgileri);
+            this.Controls.Add(this.gb_tablo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "form_personeller";
             this.Text = "Personeller";
             this.gb_personel_bilgileri.ResumeLayout(false);
@@ -562,7 +563,7 @@
         private System.Windows.Forms.Label lbl_durumu;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private ozel_dgv dgv_personeller;
+        private Ozel_DGV dgv_personeller;
         private System.Windows.Forms.DataGridViewTextBoxColumn personel_kodu;
         private System.Windows.Forms.DataGridViewTextBoxColumn personel_ad_soyad;
         private System.Windows.Forms.GroupBox gb_tablo;

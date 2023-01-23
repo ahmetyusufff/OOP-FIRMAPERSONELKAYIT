@@ -12,19 +12,19 @@ using Org.BouncyCastle.Asn1.Cms;
 
 namespace OOP_FIRMAPERSONELKAYIT
 {
-    internal static class dbConnection
+    internal static class DbConnection
     {
-        static string connString = "Server=localhost;Database=timecom-test;Uid=root;Pwd=;";
+        static readonly string connString = "Server=localhost;Database=timecom-test;Uid=root;Pwd=;";
         public static MySqlConnection conn = new MySqlConnection(connString);
 
         // genel metodlar
-        public static int updateQuery(string srQuery)
+        public static int UpdateQuery(string srQuery)
         {
             if (conn.State != ConnectionState.Open) conn.Open();
             if (string.IsNullOrEmpty(srQuery)) return 0;
             return new MySqlCommand(srQuery, conn).ExecuteNonQuery();
         }
-        public static DataTable selectQuery(string srQuery)
+        public static DataTable SelectQuery(string srQuery)
         {
             if (conn.State != ConnectionState.Open) conn.Open();
             if (string.IsNullOrEmpty(srQuery)) return null;
@@ -33,9 +33,9 @@ namespace OOP_FIRMAPERSONELKAYIT
             return dt;
         }
         // tüm tabloyu tablo getir
-        public static DataTable getTable(string tableName)
+        public static DataTable GetTable(string tableName)
         {
-            return selectQuery($"SELECT * FROM {tableName}");
+            return SelectQuery($"SELECT * FROM {tableName}");
         }
 
 

@@ -16,7 +16,7 @@ namespace OOP_FIRMAPERSONELKAYIT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new form_firmalar());
+            Application.Run(new Form_Firmalar());
         }
     }
 }

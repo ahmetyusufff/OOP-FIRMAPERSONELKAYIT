@@ -15,35 +15,35 @@ using Google.Apis.Calendar.v3.Data;
 using Google.Apis.Services;
 namespace OOP_FIRMAPERSONELKAYIT
 {
-    public partial class form_personeller : Form
+    public partial class Form_Personeller : Form
     {
-        tbl_personeller personeller;
+        readonly Tbl_Personeller personeller;
         static string firma_kodu;
-        public form_personeller(string _firma_kodu)
+        public Form_Personeller(string _firma_kodu)
         {
             firma_kodu = _firma_kodu;
-            personeller = new tbl_personeller(_firma_kodu);
-            personeller.DataTableChanged += refreshDGV;
+            personeller = new Tbl_Personeller(_firma_kodu);
+            personeller.DataTableChanged += RefreshDGV;
             InitializeComponent();
-            refreshDGV();
+            RefreshDGV();
         }
 
-        void refreshDGV(object sender=null,EventArgs e =null)
+        void RefreshDGV(object sender=null,EventArgs e =null)
         {
-            var dtPersoneller = personeller.personel_dt_getir(firma_kodu);
+            personeller.Guncelle();
             dgv_personeller.Rows.Clear();
-            foreach (DataRow x in dtPersoneller.Rows)
+            foreach (DataRow x in personeller.Dt_Tablo.Rows)
             {
                 dgv_personeller.Rows.Add(x.ItemArray);
             }
         }
 
-        private void btn_geri_Click(object sender, EventArgs e)
+        private void Btn_geri_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btn_yeni_kayit_Click(object sender, EventArgs e)
+        private void Btn_yeni_kayit_Click(object sender, EventArgs e)
         {
             string msg = "";
             Personel personel = new Personel();
@@ -62,7 +62,7 @@ namespace OOP_FIRMAPERSONELKAYIT
             }
             catch { msg = "Gerekli alanları doldurduğunuza emin olunuz."; }
 
-            if (msg == "" && personeller.personel_ekle(personel, out msg))
+            if (msg == "" && personeller.Personel_ekle(personel, out msg))
             {
                 MessageBox.Show("Personel başarıyla eklendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -73,21 +73,23 @@ namespace OOP_FIRMAPERSONELKAYIT
 
         }
 
-        private void btn_duzenle_Click(object sender, EventArgs e)
+        private void Btn_duzenle_Click(object sender, EventArgs e)
         {
             string _personel_kodu = dgv_personeller.SelectedRows?[0].Cells["personel_kodu"].Value.ToString();
-            Personel personel = new Personel();
-            personel.personel_kodu = txt_personel_kodu.Text;
-            personel.personel_adi = txt_adi.Text;
-            personel.personel_soyadi = txt_soyadi.Text;
-            personel.personel_tc = txt_tc.Text;
-            personel.personel_calisma_sekli = cmb_calisma_sekli.SelectedItem.ToString();
-            personel.personel_engellilik = cmb_durumu.SelectedItem.ToString();
-            personel.personel_cinsiyeti = cmb_cinsiyeti.SelectedItem.ToString();
-            personel.personel_ise_baslama_tarihi = txt_ise_baslama_tarihi.Text;
-            personel.personel_ucreti = Decimal.Parse(txt_ucreti.Text);
-            personel.personel_firma = firma_kodu;
-            if (personeller.firma_duzenle(dgv_personeller.SelectedRows[0].Cells["personel_kodu"].Value.ToString(), personel))
+            Personel personel = new Personel
+            {
+                personel_kodu = txt_personel_kodu.Text,
+                personel_adi = txt_adi.Text,
+                personel_soyadi = txt_soyadi.Text,
+                personel_tc = txt_tc.Text,
+                personel_calisma_sekli = cmb_calisma_sekli.SelectedItem.ToString(),
+                personel_engellilik = cmb_durumu.SelectedItem.ToString(),
+                personel_cinsiyeti = cmb_cinsiyeti.SelectedItem.ToString(),
+                personel_ise_baslama_tarihi = txt_ise_baslama_tarihi.Text,
+                personel_ucreti = Decimal.Parse(txt_ucreti.Text),
+                personel_firma = firma_kodu
+            };
+            if (personeller.Firma_duzenle(_personel_kodu, personel))
             {
                 MessageBox.Show("Personel başarıyla düzenlendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -97,13 +99,13 @@ namespace OOP_FIRMAPERSONELKAYIT
             }
         }
 
-        private void btn_sil_Click(object sender, EventArgs e)
+        private void Btn_sil_Click(object sender, EventArgs e)
         {
             if (dgv_personeller.SelectedRows.Count == 0) { return; }
             var result = MessageBox.Show("Personeli silmek istediğinize emin misiniz?", "Onay Kutusu", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                if (personeller.personel_sil(dgv_personeller.SelectedRows[0].Cells["personel_kodu"].Value.ToString()))
+                if (personeller.Personel_sil(dgv_personeller.SelectedRows[0].Cells["personel_kodu"].Value.ToString()))
                 {
                     MessageBox.Show("Personel silindi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -115,7 +117,7 @@ namespace OOP_FIRMAPERSONELKAYIT
             else { return; }
         }
 
-        private void dgv_personeller_SelectionChanged(object sender, EventArgs e)
+        private void Dgv_personeller_SelectionChanged(object sender, EventArgs e)
         {
             if(dgv_personeller.SelectedRows.Count==0)
             {
@@ -128,7 +130,7 @@ namespace OOP_FIRMAPERSONELKAYIT
             }
             else
             {
-                DataRow dr_personel = personeller.dt_Tablo.Rows.Cast<DataRow>().FirstOrDefault(x => x["personel_kodu"].Equals(dgv_personeller.SelectedRows[0].Cells["personel_kodu"].Value));
+                DataRow dr_personel = personeller.Dt_Tablo.Rows.Cast<DataRow>().FirstOrDefault(x => x["personel_kodu"].Equals(dgv_personeller.SelectedRows[0].Cells["personel_kodu"].Value));
                 txt_personel_kodu.Text = dr_personel["personel_kodu"].ToString();
                 txt_adi.Text = dr_personel["personel_adi"].ToString();
                 txt_soyadi.Text = dr_personel["personel_soyadi"].ToString();

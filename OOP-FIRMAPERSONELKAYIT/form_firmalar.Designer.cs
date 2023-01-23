@@ -1,6 +1,6 @@
 ﻿namespace OOP_FIRMAPERSONELKAYIT
 {
-    partial class form_firmalar
+    partial class Form_Firmalar
     {
         /// <summary>
         ///Gerekli tasarımcı değişkeni.
@@ -77,7 +77,7 @@
             this.lbl_arama = new System.Windows.Forms.Label();
             this.txt_arama = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgv_Firmalar = new OOP_FIRMAPERSONELKAYIT.ozel_dgv();
+            this.dgv_Firmalar = new OOP_FIRMAPERSONELKAYIT.Ozel_DGV();
             this.firma_kodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firma_unvani_adi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -105,13 +105,14 @@
             this.item_personeller.Name = "item_personeller";
             this.item_personeller.Size = new System.Drawing.Size(216, 22);
             this.item_personeller.Text = "Firmanın Personellerine Git";
-            this.item_personeller.Click += new System.EventHandler(this.item_personeller_Click);
+            this.item_personeller.Click += new System.EventHandler(this.Item_personeller_Click);
             // 
             // personelMaaşHesaplamaToolStripMenuItem
             // 
             this.personelMaaşHesaplamaToolStripMenuItem.Name = "personelMaaşHesaplamaToolStripMenuItem";
             this.personelMaaşHesaplamaToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.personelMaaşHesaplamaToolStripMenuItem.Text = "Personel Maaş Hesaplama";
+            this.personelMaaşHesaplamaToolStripMenuItem.Click += new System.EventHandler(this.Item_maas_hesapla_Click);
             // 
             // txt_firma_kodu
             // 
@@ -282,7 +283,7 @@
             this.cmb_sehir.Size = new System.Drawing.Size(100, 21);
             this.cmb_sehir.TabIndex = 14;
             this.cmb_sehir.ValueMember = "ilID";
-            this.cmb_sehir.SelectedValueChanged += new System.EventHandler(this.cmb_sehir_SelectedValueChanged);
+            this.cmb_sehir.SelectedValueChanged += new System.EventHandler(this.Cmb_sehir_SelectedValueChanged);
             // 
             // txt_sokak
             // 
@@ -480,7 +481,7 @@
             this.cmb_merkez_sube.Name = "cmb_merkez_sube";
             this.cmb_merkez_sube.Size = new System.Drawing.Size(100, 21);
             this.cmb_merkez_sube.TabIndex = 2;
-            this.cmb_merkez_sube.SelectedIndexChanged += new System.EventHandler(this.cmb_merkez_sube_SelectedIndexChanged);
+            this.cmb_merkez_sube.SelectedIndexChanged += new System.EventHandler(this.Cmb_merkez_sube_SelectedIndexChanged);
             // 
             // lbl_ad_unvan
             // 
@@ -518,7 +519,7 @@
             this.btn_secimi_temizle.TabIndex = 21;
             this.btn_secimi_temizle.Text = "Seçimi Temizle";
             this.btn_secimi_temizle.UseVisualStyleBackColor = true;
-            this.btn_secimi_temizle.Click += new System.EventHandler(this.btn_secimi_temizle_Click);
+            this.btn_secimi_temizle.Click += new System.EventHandler(this.Btn_secimi_temizle_Click);
             // 
             // lbl_arama
             // 
@@ -533,9 +534,9 @@
             // 
             this.txt_arama.Location = new System.Drawing.Point(128, 380);
             this.txt_arama.Name = "txt_arama";
-            this.txt_arama.Size = new System.Drawing.Size(181, 20);
+            this.txt_arama.Size = new System.Drawing.Size(183, 20);
             this.txt_arama.TabIndex = 1;
-            this.txt_arama.TextChanged += new System.EventHandler(this.txt_arama_TextChanged);
+            this.txt_arama.TextChanged += new System.EventHandler(this.Txt_arama_TextChanged);
             // 
             // panel1
             // 
@@ -561,6 +562,7 @@
             this.dgv_Firmalar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.firma_kodu,
             this.firma_unvani_adi});
+            this.dgv_Firmalar.EnterTusuSagaGecer = false;
             this.dgv_Firmalar.Location = new System.Drawing.Point(5, 19);
             this.dgv_Firmalar.MultiSelect = false;
             this.dgv_Firmalar.Name = "dgv_Firmalar";
@@ -570,7 +572,7 @@
             this.dgv_Firmalar.Size = new System.Drawing.Size(306, 355);
             this.dgv_Firmalar.TabIndex = 0;
             this.dgv_Firmalar.TabStop = false;
-            this.dgv_Firmalar.SelectionChanged += new System.EventHandler(this.dgv_Firmalar_SelectionChanged);
+            this.dgv_Firmalar.SelectionChanged += new System.EventHandler(this.Dgv_Firmalar_SelectionChanged);
             // 
             // firma_kodu
             // 
@@ -603,13 +605,13 @@
             this.btn_sil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_sil.Image = global::OOP_FIRMAPERSONELKAYIT.Properties.Resources.delete_24;
             this.btn_sil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_sil.Location = new System.Drawing.Point(642, 3);
+            this.btn_sil.Location = new System.Drawing.Point(841, 3);
             this.btn_sil.Name = "btn_sil";
             this.btn_sil.Size = new System.Drawing.Size(113, 39);
             this.btn_sil.TabIndex = 224;
             this.btn_sil.Text = "SİL";
             this.btn_sil.UseVisualStyleBackColor = true;
-            this.btn_sil.Click += new System.EventHandler(this.btn_sil_Click);
+            this.btn_sil.Click += new System.EventHandler(this.Btn_sil_Click);
             // 
             // btn_duzenle
             // 
@@ -617,14 +619,14 @@
             this.btn_duzenle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_duzenle.Image = global::OOP_FIRMAPERSONELKAYIT.Properties.Resources.edit_24;
             this.btn_duzenle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_duzenle.Location = new System.Drawing.Point(433, 3);
+            this.btn_duzenle.Location = new System.Drawing.Point(702, 3);
             this.btn_duzenle.Name = "btn_duzenle";
             this.btn_duzenle.Size = new System.Drawing.Size(113, 39);
             this.btn_duzenle.TabIndex = 223;
             this.btn_duzenle.Text = "DÜZENLE";
             this.btn_duzenle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_duzenle.UseVisualStyleBackColor = true;
-            this.btn_duzenle.Click += new System.EventHandler(this.btn_duzenle_Click);
+            this.btn_duzenle.Click += new System.EventHandler(this.Btn_duzenle_Click);
             // 
             // btn_yeni_kayit
             // 
@@ -632,14 +634,14 @@
             this.btn_yeni_kayit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_yeni_kayit.Image = global::OOP_FIRMAPERSONELKAYIT.Properties.Resources.add_file_24;
             this.btn_yeni_kayit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_yeni_kayit.Location = new System.Drawing.Point(241, 3);
+            this.btn_yeni_kayit.Location = new System.Drawing.Point(561, 3);
             this.btn_yeni_kayit.Name = "btn_yeni_kayit";
             this.btn_yeni_kayit.Size = new System.Drawing.Size(113, 39);
             this.btn_yeni_kayit.TabIndex = 222;
             this.btn_yeni_kayit.Text = "YENİ KAYIT";
             this.btn_yeni_kayit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_yeni_kayit.UseVisualStyleBackColor = true;
-            this.btn_yeni_kayit.Click += new System.EventHandler(this.btn_yeni_kayit_Click);
+            this.btn_yeni_kayit.Click += new System.EventHandler(this.Btn_yeni_kayit_Click);
             // 
             // form_firmalar
             // 
@@ -651,6 +653,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gb_dgv);
             this.Controls.Add(this.gb_firma_bilgileri);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "form_firmalar";
             this.Text = "Firmalar";
             this.cm_secilen_firma.ResumeLayout(false);
@@ -667,7 +670,7 @@
 
         #endregion
 
-        private OOP_FIRMAPERSONELKAYIT.ozel_dgv dgv_Firmalar;
+        private OOP_FIRMAPERSONELKAYIT.Ozel_DGV dgv_Firmalar;
         private System.Windows.Forms.TextBox txt_firma_kodu;
         private System.Windows.Forms.TextBox txt_sube;
         private System.Windows.Forms.TextBox txt_ad_unvan;

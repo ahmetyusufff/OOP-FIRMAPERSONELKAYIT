@@ -6,29 +6,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static OOP_FIRMAPERSONELKAYIT.dbConnection;
+using static OOP_FIRMAPERSONELKAYIT.DbConnection;
 
 namespace OOP_FIRMAPERSONELKAYIT
 {
-    internal class tbl_firmalar
+    internal class Tbl_Firmalar
     {
-        string table_name = "firmalar";
+        readonly string table_name = "firmalar";
         public event EventHandler DataTableChanged;
-        private DataTable _dt_Tablo;
-        public DataTable dt_Tablo { get { return _dt_Tablo; } set { _dt_Tablo = value; DataTableChanged(this, null); } }
-        public tbl_firmalar()
+        private readonly DataTable _Dt_Tablo;
+        public DataTable Dt_Tablo { get { return _Dt_Tablo; } set { Dt_Tablo = value; DataTableChanged(this, null); } }
+        public Tbl_Firmalar()
         {
-            _dt_Tablo = getTable(table_name);
+            _Dt_Tablo = GetTable(table_name);
         }
-        public DataView asDataView()
+      
+        public DataView AsDataView()
         {
-            return dt_Tablo.AsDataView();
+            return Dt_Tablo.AsDataView();
         }
-        public List<Firma> firma_listesi_getir()
-        {
-            return dt_Tablo?.Rows?.OfType<DataRow>()?.Select<DataRow, Firma>(x => new Firma(x))?.ToList();
-        }
-        public bool firma_ekle(Firma firma, out string msg)
+        public bool Firma_ekle(Firma firma, out string msg)
 
         {
             msg = "";
@@ -36,7 +33,7 @@ namespace OOP_FIRMAPERSONELKAYIT
             if (string.IsNullOrEmpty(firma.firma_adi_unvani) || string.IsNullOrEmpty(firma.firma_kodu)) return false;
             try
             {
-                int res = updateQuery($"INSERT INTO `firmalar`(`firma_kodu`, " +
+                int res = UpdateQuery($"INSERT INTO `firmalar`(`firma_kodu`, " +
                 $"`firma_merkez_sube`, `firma_sube_adi`, `firma_adi_unvani`, " +
                 $"`firma_eposta`, `firma_kep`, `firma_web`, `firma_adres_bulvar`, " +
                 $"`firma_adres_cadde`, `firma_adres_sokak`, `firma_adres_mahalle`, " +
@@ -56,7 +53,7 @@ namespace OOP_FIRMAPERSONELKAYIT
                 }
                 else
                 {
-                    dt_Tablo = getTable(table_name);
+                    Dt_Tablo = GetTable(table_name);
                     return true;
                 }
             }
@@ -69,21 +66,21 @@ namespace OOP_FIRMAPERSONELKAYIT
 
         }
 
-        public bool firma_sil(string _firma_kodu)
+        public bool Firma_sil(string _firma_kodu)
         {
             if (string.IsNullOrEmpty(_firma_kodu)) return false;
-            int res = updateQuery($"DELETE FROM {table_name} WHERE firma_kodu='{_firma_kodu}'");
+            int res = UpdateQuery($"DELETE FROM {table_name} WHERE firma_kodu='{_firma_kodu}'");
             if (res == 0) return false;
             else
             {
-                dt_Tablo = getTable(table_name);
+                Dt_Tablo = GetTable(table_name);
                 return true;
             }
         }
-        public bool firma_duzenle(string _firma_kodu, Firma firma)
+        public bool Firma_duzenle(string _firma_kodu, Firma firma)
         {
             if (string.IsNullOrEmpty(_firma_kodu)) return false;
-            int res = dbConnection.updateQuery($"UPDATE `firmalar` SET `firma_kodu`= '{firma.firma_kodu}',`firma_merkez_sube`= '{firma.firma_merkez_sube}'," +
+            int res = DbConnection.UpdateQuery($"UPDATE `firmalar` SET `firma_kodu`= '{firma.firma_kodu}',`firma_merkez_sube`= '{firma.firma_merkez_sube}'," +
                 $"`firma_sube_adi`= '{firma.firma_sube_adi}',`firma_adi_unvani`= '{firma.firma_adi_unvani}'," +
                 $"`firma_eposta`= '{firma.firma_eposta}',`firma_kep`= '{firma.firma_kep}',`firma_web`= '{firma.firma_web}'," +
                 $"`firma_adres_bulvar`= '{firma.firma_adres_bulvar}',`firma_adres_cadde`= '{firma.firma_adres_cadde}'," +
@@ -96,7 +93,7 @@ namespace OOP_FIRMAPERSONELKAYIT
             if (res == 0) return false;
             else
             {
-                dt_Tablo = getTable(table_name);
+                Dt_Tablo = GetTable(table_name);
                 return true;
             }
         }
