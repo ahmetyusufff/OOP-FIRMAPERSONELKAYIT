@@ -73,6 +73,16 @@ namespace OOP_FIRMAPERSONELKAYIT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap back {
+            get {
+                object obj = ResourceManager.GetObject("back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap delete_24 {
             get {
                 object obj = ResourceManager.GetObject("delete-24", resourceCulture);
@@ -86,6 +96,16 @@ namespace OOP_FIRMAPERSONELKAYIT.Properties {
         internal static System.Drawing.Bitmap edit_24 {
             get {
                 object obj = ResourceManager.GetObject("edit-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap timecom_logo {
+            get {
+                object obj = ResourceManager.GetObject("timecom-logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

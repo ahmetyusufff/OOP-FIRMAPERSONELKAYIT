@@ -12,9 +12,6 @@ namespace OOP_FIRMAPERSONELKAYIT
         public int ilID { get; set; }
         public string ilAdi { get; set; }
         public List<ilce> ilceler { get; set; }
-        public BindingSource ilceler_bs(){
-            return new BindingSource(ilceler, "ilceID");
-        }
         public il() { }
         public il(int ilID, string ilAdi, List<ilce> ilceler)
         {
